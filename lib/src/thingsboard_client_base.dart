@@ -78,6 +78,9 @@ class ThingsboardClient {
       TbCompute? computeFunc}) {
     var dio = Dio();
     dio.options.baseUrl = apiEndpoint;
+    dio.options.connectTimeout = Duration(seconds: 5);
+    dio.options.sendTimeout = Duration(seconds: 5);
+    dio.options.receiveTimeout = Duration(seconds: 5);
     final tbClient = ThingsboardClient._internal(
         apiEndpoint,
         dio,
